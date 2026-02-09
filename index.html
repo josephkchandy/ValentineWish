@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <audio id="bg-music" src="music/song.mp3" preload="auto"></audio>
     <div class="container">
       <div class="one">
         <h1 class="one">
@@ -134,4 +135,16 @@
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
   <script type="text/babel" src="script/main.js"></script>
+  <script>
+  const audio = document.getElementById("bg-music");
+
+  const playMusic = () => {
+    audio.volume = 0.6;   // adjust volume
+    audio.play().catch(() => {});
+    document.removeEventListener("click", playMusic);
+  };
+
+  document.addEventListener("click", playMusic);
+</script>
+
 </html>
