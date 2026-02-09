@@ -130,6 +130,14 @@
         <p class="last-smile">:)</p>
       </div>
     </div>
+    <script>
+  document.addEventListener("click", function () {
+    const audio = document.getElementById("bg-music");
+    audio.volume = 0.6;
+    audio.play().catch(() => {});
+  }, { once: true });
+</script>
+
   </body>
 
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
