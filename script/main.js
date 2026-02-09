@@ -1,4 +1,8 @@
 // Animation Timeline
+if (window.innerWidth < 768) {
+  TweenMax.globalTimeScale(0.6);
+}
+
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
