@@ -138,17 +138,20 @@
   const audio = document.getElementById("bg-music");
 
   function startMusic() {
-    audio.volume = 0.6;
-    audio.play().catch(err => console.log("Audio error:", err));
-    document.removeEventListener("click", startMusic);
-    document.removeEventListener("mousemove", startMusic);
-    document.removeEventListener("touchstart", startMusic);
+    audio.muted = true;
+    audio.play().then(() => {
+      audio.muted = false;
+      audio.volume = 0.6;
+    }).catch(err => console.log("Audio blocked:", err));
+
+    document.removeEventListener("pointerdown", startMusic);
+    document.removeEventListener("keydown", startMusic);
   }
 
-  document.addEventListener("click", startMusic);
-  document.addEventListener("mousemove", startMusic);
-  document.addEventListener("touchstart", startMusic);
+  document.addEventListener("pointerdown", startMusic);
+  document.addEventListener("keydown", startMusic);
 </script>
+
 
 
   </body>
