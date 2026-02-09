@@ -134,7 +134,7 @@
         <p class="last-smile">:)</p>
       </div>
     </div>
-    <script>
+   <script>
   const audio = document.getElementById("bg-music");
 
   function startMusic() {
@@ -142,15 +142,16 @@
     audio.play().then(() => {
       audio.muted = false;
       audio.volume = 0.6;
-    }).catch(err => console.log("Audio blocked:", err));
+    }).catch(()=>{});
 
-    document.removeEventListener("pointerdown", startMusic);
-    document.removeEventListener("keydown", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+    document.removeEventListener("click", startMusic);
   }
 
-  document.addEventListener("pointerdown", startMusic);
-  document.addEventListener("keydown", startMusic);
+  document.addEventListener("touchstart", startMusic, { once: true });
+  document.addEventListener("click", startMusic, { once: true });
 </script>
+
 
 
 
