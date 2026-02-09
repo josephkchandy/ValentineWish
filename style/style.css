@@ -133,10 +133,22 @@ h1, h3, p {
 
 .six img {
   max-width: 45%;
-  max-height: 40vh;   /* 🔥 KEY LINE */
+  max-height: 40vh;
   height: auto;
   object-fit: contain;
 }
+
+@media screen and (max-width: 500px) {
+  .six img {
+    max-width: 80%;
+    max-height: 30vh;
+  }
+}
+
+.six .wish {
+  margin-top: 1rem;
+}
+
 
 
 .six .hat {
