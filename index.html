@@ -135,12 +135,21 @@
       </div>
     </div>
     <script>
-  document.addEventListener("click", function () {
-    const audio = document.getElementById("bg-music");
+  const audio = document.getElementById("bg-music");
+
+  function startMusic() {
     audio.volume = 0.6;
-    audio.play().catch(() => {});
-  }, { once: true });
+    audio.play().catch(err => console.log("Audio error:", err));
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("mousemove", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+  }
+
+  document.addEventListener("click", startMusic);
+  document.addEventListener("mousemove", startMusic);
+  document.addEventListener("touchstart", startMusic);
 </script>
+
 
   </body>
 
