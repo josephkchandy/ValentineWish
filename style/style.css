@@ -132,10 +132,12 @@ h1, h3, p {
 }
 
 .six img {
-  display: inline-block;
   max-width: 45%;
+  max-height: 40vh;   /* 🔥 KEY LINE */
   height: auto;
+  object-fit: contain;
 }
+
 
 .six .hat {
   position: absolute;
